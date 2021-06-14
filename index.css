@@ -1,4 +1,5 @@
 canvas {
     border: 1px solid black;
+    background: linear-gradient(to left, #65DFC9 0%, #6596F6 40%, #65DFC9 80% )
 }
 

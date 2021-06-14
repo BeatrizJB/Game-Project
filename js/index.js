@@ -2,16 +2,16 @@ const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 let ball;
 let player1;
-let player2; 
+let player2;
 
 function startGame() {
   ball = new Ball();
-  player1 = new Player(20, 200, "red");
-  player2 = new Player(665, 300, "red");
+  player1 = new Player(20, 200, "white");
+  player2 = new Player(665, 300, "white");
   updateCanvas();
 }
 
-
+/*
 function defenseDetect(player, ball) {
   // returns true or false
   player.top = player.y;
@@ -24,20 +24,23 @@ function defenseDetect(player, ball) {
   ball.left = ball.x - ball.radius;
   return ball.left < player.right && ball.top < player.bottom && ball.right > player.left && ball.bottom > player.top;
 }
+*/
 
 function updateCanvas() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   player1.draw();
-  player2.draw(); 
+  player2.draw();
 
   ball.draw();
   ballMovement();
   if (detectCollision()) {
-  ball.vx *= -1;
-    console.log('player got hit');
+    ball.vx *= -1;
+    console.log("player got hit");
   }
 
   requestAnimationFrame(updateCanvas);
+
+  /*
 
   let player = (ball.x < canvas.width / 2) ? player2 : player1;
   if (defenseDetect(player, ball)) {
@@ -53,12 +56,14 @@ function updateCanvas() {
       // then angle will be Math.PI / 4 = 45deg
       angle = Math.PI / 4;
     }
-    /* change velocity of ball according to on which paddle the ball hitted */
+    /* change velocity of ball according to on which paddle the ball hitted 
     ball.velocityX = (player === user ? 1 : -1) * ball.speed * Math.cos(angle);
     ball.velocityY = ball.speed * Math.sin(angle);
     // increase ball speed
     ball.speed += 0.2;
   }
+
+  */
 }
 
 function ballMovement() {
@@ -70,8 +75,15 @@ function ballMovement() {
   if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
     ball.vx *= -1;
   }
-}
 
+  if (
+    ball.y + ball.vy > player1.y &&
+    ball.x + ball.vx > player1.x &&
+    ball.x + ball.vx < player1.x + player1.width
+  ) {
+    ball.vy *= -1;
+  }
+}
 
 function detectCollision() {
   return !(
@@ -82,9 +94,7 @@ function detectCollision() {
   );
 }
 
-
 startGame();
-
 
 document.addEventListener("keydown", (keyboardEvent) => {
   player1.movePlayer1(keyboardEvent.key);

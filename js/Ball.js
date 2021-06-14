@@ -5,7 +5,7 @@ class Ball {
     this.vx = 15;
     this.vy = 10;
     this.radius = 25;
-    this.color = "#2e7d32";
+    this.color = "purple";
   }
 
   draw() {
