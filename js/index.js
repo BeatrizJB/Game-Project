@@ -29,30 +29,6 @@ function updateCanvas() {
 
   requestAnimationFrame(updateCanvas);
 
-  /*
-
-  let player = (ball.x < canvas.width / 2) ? player2 : player1;
-  if (defenseDetect(player, ball)) {
-    // play hitSound
-    // default angle is 0deg in Radian
-    let angle = 0;
-    // if ball hit the top of paddle
-    if (ball.y < (player.y + player.height / 2)) {
-      // then -1 * Math.PI / 4 = -45deg
-      angle = -1 * Math.PI / 4;
-    } else if (ball.y > (player.y + player.height / 2)) {
-      // if it hit the bottom of paddle
-      // then angle will be Math.PI / 4 = 45deg
-      angle = Math.PI / 4;
-    }
-    /* change velocity of ball according to on which paddle the ball hitted 
-    ball.velocityX = (player === user ? 1 : -1) * ball.speed * Math.cos(angle);
-    ball.velocityY = ball.speed * Math.sin(angle);
-    // increase ball speed
-    ball.speed += 0.2;
-  }
-
-  */
 }
 
 function ballMovement() {
@@ -64,14 +40,7 @@ function ballMovement() {
   if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
     ball.vx *= -1;
   }
-/* 
-  if (
-    ball.y + ball.vy > player1.y &&
-    ball.x + ball.vx > player1.x &&
-    ball.x + ball.vx < player1.x + player1.width
-  ) {
-    ball.vy *= -1;
-  } */
+
 }
 
 function detectPlayer1Collision() {
@@ -113,4 +82,10 @@ document.addEventListener("keydown", (keyboardEvent) => {
 
   }
 });
+
+
+
+
+
+    
 
