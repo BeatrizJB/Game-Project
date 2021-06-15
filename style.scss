@@ -12,6 +12,7 @@ $lightgrey: rgb(222, 235, 243);
 }
 
 #canvas {
+  background-color: black;
   border:3px solid black;
   margin-left: 350px;
   margin-top: 125px;
@@ -20,6 +21,11 @@ $lightgrey: rgb(222, 235, 243);
 body {
   background: black;
   font-family: Tahoma;
+}
+
+.game-name {
+  color: white;
+  margin-top:100px;
 }
 
 .monitor {
@@ -224,13 +230,6 @@ body {
   }
 }
 
-// Specific positioning for each sub menu
-
-.sub {
-  &__programs {
-    bottom: 226px;
-  }
-}
 
 // Universal styles for desktop icons
 
@@ -284,55 +283,16 @@ body {
   }
 }
 
-// Styles for the right arrow on menu items
+.intro {
+  text-align: center;
+  padding: 100px 300px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 
-.start__menu-main-items-item-arrowright {
-  width: 0; 
-  height: 0; 
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-left: 4px solid black;
-  margin-left: auto;
-  margin-right: 7px;
+
+  
 }
 
-// Style classes
-
-.underline {
-  text-decoration: underline;
-}
-
-.menu-open {
-  display: flex;
-}
-
-.icon-clicked {
-  border: 1px dashed black;
-}
-
-
-
-.bg-img {
-  background-image: url(https://i.pinimg.com/originals/96/17/c0/9617c03faeb0986659acd2fa7ff87a26.png);
-  object-fit: cover;
-  width: 200px;
-  height: 200px;
-  mix-blend-mode: multiply;
-}
-
-.settings-img {
-  background-position: 87% 21%;
-}
-
-.find-img {
-  background-position: 25% 22%;
-}
-
-.run-img {
-  background-position: 0% 80%;
-}
-
-.shutdown-img {
-  background-position: 75% 79%;
-}
 

@@ -1,10 +1,26 @@
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 
+const hitSound = new Audio('../sounds/hitSound.wav');
+
+document.querySelector(".game-board").style.display = "none";
+document.querySelector(".intro").style.display = "block";
+
+document.querySelector(".start__button").onclick = () => {
+  document.querySelector(".intro").style.display = "none";
+  document.querySelector(".game-board").style.display = "block";
+  startGame();
+};
+
+// querySelector (".class name that you assigned to the element" or #"id name that you assigned to the element")
+// getElementById ("id name that you assigned to the element")
+// getElementByClassName ("class name that you assigned to the element")
+
 let ball;
 let player1;
 let player2;
 
+let currentGame;
 
 
 function startGame() {
@@ -69,6 +85,7 @@ function ballMovement() {
 }
 
 function detectPlayer1Collision() {
+  hitSound.play();
   return ball.y + ball.vy > player1.y && 
         ball.x + ball.vx > player1.x &&
         ball.x + ball.vx < player1.x + player1.width &&
@@ -76,6 +93,7 @@ function detectPlayer1Collision() {
 }
 
 function detectPlayer2Collision() {
+  hitSound.play();
   return ball.y + ball.vy > player2.y && 
         ball.x + ball.vx > player2.x &&
         ball.x + ball.vx < player2.x + player2.width &&
@@ -107,6 +125,41 @@ document.addEventListener("keydown", (keyboardEvent) => {
 
   }
 });
+
+
+
+function updateTime(){
+  var today = new Date();
+  var hours24 = today.getHours();
+  var hours12;
+  var minutes = today.getMinutes();
+  var suffix = '';
+
+  if (hours24 >= 12) {
+    suffix = " PM";
+    hours12 = hours24 % 12;
+  } else {
+    suffix = " AM";
+    hours12 = hours24;
+  }
+  
+  if (minutes % 10 == 0) {
+    //minutes = minutes + "0";
+  } else if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  var time = hours12 + ":" + minutes + suffix;
+
+  var timeBox = document.querySelector(".start__time-text");
+
+  timeBox.innerHTML = time;
+}
+
+setInterval(updateTime, 1000);
+
+
+
 
 
 

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,11 +11,17 @@
   <script src="/js/index.js" defer></script>
 </head>
 <body>
-
-  
   <div class="monitor">
-    <canvas id="canvas" width="700" height="400"></canvas>
-    <div class="start">
+    <div class="game-board">
+      <canvas id="canvas" width="700" height="400"></canvas>
+    </div>
+    <div class="intro">
+      <h1>TABLE TENNIS 2021</h1>
+    <p>* Do not let the ball touch your wall!</p>
+    <p>* Please enable Javascript in your browser settings! This website will not work without it!</p>
+    <p class="text-center">Press START to continue <span class="blink">_</span></p>
+    </div>
+   <div class="start">
       <div class="start__button">
         <div class="start__logo">
         </div>
@@ -24,97 +29,27 @@
           Start
         </p>
       </div>
-      <div class="start__time">
-        <p class="start__time-text">
-        </p>
-      </div>
-    </div>
-    <div class="start__menu-main">
-       <div class="start__menu-main-side">
-         <div class="start__menu-main-side-text text">
-           <p class="ninefive">95</p>
-           <p class="windows">Windows</p>
-         </div>
-       </div>
-       <div class="start__menu-main-items">
-         <ul class="start__menu-main-items-list1">
-           <li class="start__menu-main-items-item programs">
-             <img class="programs-img icon" src="https://i.ya-webdesign.com/images/windows-95-icons-png-7.png" alt="Programs"/>
-             <p class="start__menu-main-items-item-title programs"><span class="underline"></span>Programs</p>
-             <div class="start__menu-main-items-item-arrowright"></div>
-             <ul class="start__menu-sub sub__programs">
-               <li class="start__menu-sub-items-item sub__programs-items">
-                 <img class="accessories-img icon" src="https://i.ya-webdesign.com/images/windows-95-icons-png-7.png" alt="Accessories"/>
-                 <p class="start__menu-sub-items-item-title accessories">Accessories</p>
-                 <div class="start__menu-main-items-item-arrowright"></div>
-               </li>
-               
-               <li class="start__menu-sub-items-item sub__programs-items">
-                 <img class="startup-img icon" src="https://i.ya-webdesign.com/images/windows-95-icons-png-7.png" alt="StartUp"/>
-                 <p class="start__menu-sub-items-item-title startup">StartUp</p>
-                 <div class="start__menu-main-items-item-arrowright"></div>
-               </li>
-               
-               <li class="start__menu-sub-items-item sub__programs-items">
-                 <img class="dos-img icon" src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Msdos-icon.png" alt="DOS"/>
-                 <p class="start__menu-sub-items-item-title dos">MS-DOS Prompt</p>
-                 <div class="start__menu-main-items-item-arrowright"></div>
-               </li>
-             </ul>
-           </li>
-           <li class="start__menu-main-items-item documents">
-             <img class="documents-img icon" src="https://i.ya-webdesign.com/images/windows-95-icons-png-6.png" alt="Documents"/>
-             <p class="start__menu-main-items-item-title documents"><span class="underline"></span>Documents</p>
-             <div class="start__menu-main-items-item-arrowright"></div>
-            </li>
-
-           <li class="start__menu-main-items-item settings">
-             <div class="settings-img icon bg-img"></div>
-             <p class="start__menu-main-items-item-title settings"><span class="underline"></span>Settings</p>
-             <div class="start__menu-main-items-item-arrowright"></div>
-           </li>
-      
-           <li class="start__menu-main-items-item find">
-             <div class="find-img icon bg-img"></div>
-             <p class="start__menu-main-items-item-title find"><span class="underline"></span>Find</p>
-             <div class="start__menu-main-items-item-arrowright"></div>
-           </li>
-    
-           <li class="start__menu-main-items-item help">
-             <img class="help-img icon" src="https://expensive.toys/img/about-icon.png" alt="Help"/>
-             <p class="start__menu-main-items-item-title help"><span class="underline"></span>Help</p>
-           </li>
-    
-           <li class="start__menu-main-items-item run">
-             <div class="run-img icon bg-img"></div>
-             <p class="start__menu-main-items-item-title run"><span class="underline"></span>un...</p>
-           </li>
-         </ul>
-         <ul class="start__menu-main-items-list2">
-           <li class="start__menu-main-items-item shutdown">
-             <div class="shutdown-img icon bg-img"></div>
-             <p class="start__menu-main-items-item-title"><span class="underline">Shutdown</span></p>
-           </li>
-         </ul>
-       </div>
-    </div>
+     <div class="start__time">
+     <p class="start__time-text">
+     </p>
+     </div>
+  </div>
     <div class="computer desktop-icon">
       <div class="computer__icon desktop-icon__icon">
       </div>
-      <p class="computer__text desktop-icon__text">
+       <p class="computer__text desktop-icon__text">
         My Computer
-      </p>
+       </p>
     </div>
-<div class="recycle desktop-icon">
+    <div class="recycle desktop-icon">
       <div class="recycle__icon desktop-icon__icon">
       </div>
-      <p class="recycle__text desktop-icon__text">
+       <p class="recycle__text desktop-icon__text">
         Recycle Bin
-      </p>
+       </p>
     </div>
+    
   </div>
-
 </div>
 </body>
-
 </html>

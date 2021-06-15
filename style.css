@@ -1,4 +1,5 @@
 #canvas {
+  background-color: black;
   border: 3px solid black;
   margin-left: 350px;
   margin-top: 125px;
@@ -7,6 +8,11 @@
 body {
   background: black;
   font-family: Tahoma;
+}
+
+.game-name {
+  color: white;
+  margin-top: 100px;
 }
 
 .monitor {
@@ -242,10 +248,6 @@ body {
   margin: 7px 0;
 }
 
-.sub__programs {
-  bottom: 226px;
-}
-
 .desktop-icon {
   position: absolute;
   height: 100px;
@@ -299,52 +301,21 @@ body {
   background-size: contain;
 }
 
-.start__menu-main-items-item-arrowright {
-  width: 0;
-  height: 0;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-left: 4px solid black;
-  margin-left: auto;
-  margin-right: 7px;
-}
-
-.underline {
-  text-decoration: underline;
-}
-
-.menu-open {
+.intro {
+  text-align: center;
+  padding: 100px 300px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.icon-clicked {
-  border: 1px dashed black;
-}
-
-.bg-img {
-  background-image: url(https://i.pinimg.com/originals/96/17/c0/9617c03faeb0986659acd2fa7ff87a26.png);
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 200px;
-  height: 200px;
-  mix-blend-mode: multiply;
-}
-
-.settings-img {
-  background-position: 87% 21%;
-}
-
-.find-img {
-  background-position: 25% 22%;
-}
-
-.run-img {
-  background-position: 0% 80%;
-}
-
-.shutdown-img {
-  background-position: 75% 79%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=style.css.map */
