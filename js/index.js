@@ -8,13 +8,13 @@ let player2;
 function startGame() {
   ball = new Ball();
   player1 = new Player(20, 150, "white");
-  player2 = new Player(670, 150, "white");
+  player2 = new Player(770, 150, "white");
   updateCanvas();
 }
 
 function drawNet(){
   context.fillStyle = "white";
-  context.fillRect(350, 0, 5, 500);
+  context.fillRect(395, 0, 5, 500);
 }
 
 function drawScore(x, y, score){
@@ -28,7 +28,6 @@ function reset() {
 
   ball.x = 350;
   ball.y = 250;
-  ball.speed = 7;
 
   ball.vx = -ball.vx;
   ball.vy = -ball.vy;
@@ -44,12 +43,17 @@ function updateCanvas() {
   player1.draw();
   player2.draw();
   
-  drawScore(175, 83, player1.score);
-  drawScore(525, 83, player2.score);
+  drawScore(200, 83, player1.score);
+  drawScore(600, 83, player2.score);
   
   
   ball.draw();
-  ballMovement();
+
+  setTimeout(() =>{
+        ballMovement(); //recursive function
+    }, 1000);
+
+  //ballMovement();
 
   if (detectPlayer1Collision()) {
     ball.vx *= -1;

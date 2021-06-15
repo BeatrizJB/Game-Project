@@ -1,12 +1,11 @@
 class Ball {
   constructor() {
-    this.x = 300;
+    this.x = 400;
     this.y = 250;
     this.vx = 5;
     this.vy = 5;
     this.radius = 10;
     this.color = "white";
-    this.speed = 7;
   }
 
   draw() {
