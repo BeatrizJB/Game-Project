@@ -33,9 +33,12 @@ function updateCanvas() {
 
   ball.draw();
   ballMovement();
-  if (detectCollision()) {
+  if (detectPlayer1Collision()) {
     ball.vx *= -1;
-    console.log("player got hit");
+  }
+
+  if (detectPlayer2Collision()) {
+    ball.vx *= -1;
   }
 
   requestAnimationFrame(updateCanvas);
@@ -75,31 +78,53 @@ function ballMovement() {
   if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
     ball.vx *= -1;
   }
-
+/* 
   if (
     ball.y + ball.vy > player1.y &&
     ball.x + ball.vx > player1.x &&
     ball.x + ball.vx < player1.x + player1.width
   ) {
     ball.vy *= -1;
-  }
+  } */
 }
 
-function detectCollision() {
-  return !(
-    player1.x > ball.x ||
-    player1.x + player1.width < ball.x ||
-    player1.y > ball.y ||
-    player1.y + player1.height < ball.y
-  );
+function detectPlayer1Collision() {
+  return ball.y + ball.vy > player1.y && 
+        ball.x + ball.vx > player1.x &&
+        ball.x + ball.vx < player1.x + player1.width &&
+        ball.y + ball.vy < player1.y + player1.height
+}
+
+function detectPlayer2Collision() {
+  return ball.y + ball.vy > player2.y && 
+        ball.x + ball.vx > player2.x &&
+        ball.x + ball.vx < player2.x + player2.width &&
+        ball.y + ball.vy < player2.y + player2.height
 }
 
 startGame();
 
 document.addEventListener("keydown", (keyboardEvent) => {
-  player1.movePlayer1(keyboardEvent.key);
+  switch(keyboardEvent.key) {
+    case "q":
+      player1.moveUp();
+    break;
+    case "a":
+      player1.moveDown();
+    break;
+
+  }
 });
 
 document.addEventListener("keydown", (keyboardEvent) => {
-  player2.movePlayer2(keyboardEvent.key);
+  switch(keyboardEvent.key) {
+    case "ArrowUp":
+      player2.moveUp();
+    break;
+    case "ArrowDown":
+      player2.moveDown();
+    break;
+
+  }
 });
+

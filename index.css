@@ -1,5 +1,11 @@
+body {
+    
+}
+
 canvas {
-    border: 1px solid black;
-    background: linear-gradient(to left, #65DFC9 0%, #6596F6 40%, #65DFC9 80% )
+    background: blue;
+    border: 1px solid black; 
+    margin-left: 300px;
+    margin-top: 100px;
 }
 
