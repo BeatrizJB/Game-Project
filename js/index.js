@@ -11,20 +11,6 @@ function startGame() {
   updateCanvas();
 }
 
-/*
-function defenseDetect(player, ball) {
-  // returns true or false
-  player.top = player.y;
-  player.right = player.x + player.width;
-  player.bottom = player.y + player.height;
-  player.left = player.x;
-  ball.top = ball.y - ball.radius;
-  ball.right = ball.x + ball.radius;
-  ball.bottom = ball.y + ball.radius;
-  ball.left = ball.x - ball.radius;
-  return ball.left < player.right && ball.top < player.bottom && ball.right > player.left && ball.bottom > player.top;
-}
-*/
 
 function updateCanvas() {
   context.clearRect(0, 0, canvas.width, canvas.height);
