@@ -1,8 +1,11 @@
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
+
 let ball;
 let player1;
 let player2;
+
+
 
 function startGame() {
   ball = new Ball();
@@ -11,11 +14,24 @@ function startGame() {
   updateCanvas();
 }
 
+function drawNet(){
+  context.fillStyle = "white";
+  context.fillRect(350, 0, 5, 500);
+}
+
+function drawScore(x, y, score){
+  context.fillStyle = "white";
+  context.font = "35px sans-serif";
+  context.fillText(score, x, y);
+}
 
 function updateCanvas() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   player1.draw();
   player2.draw();
+  drawNet();
+  drawScore(175, 83, player1.score);
+  drawScore(525, 83, player2.score);
 
   ball.draw();
   ballMovement();
@@ -23,9 +39,18 @@ function updateCanvas() {
     ball.vx *= -1;
   }
 
+  if (ball.x + ball.radius >= canvas.width){
+    player1.score += 1;
+  }
+
   if (detectPlayer2Collision()) {
     ball.vx *= -1;
   }
+
+    if (ball.x - ball.radius <= 0){
+    player2.score += 1;
+  }
+
 
   requestAnimationFrame(updateCanvas);
 
