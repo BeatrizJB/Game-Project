@@ -24,26 +24,33 @@ function drawScore(x, y, score){
 }
 
 
-function reset() {  
+function reset() { 
+
   ball.x = 350;
   ball.y = 250;
   ball.speed = 7;
 
   ball.vx = -ball.vx;
   ball.vy = -ball.vy;
+  
 }
 
 
 function updateCanvas() {
   context.clearRect(0, 0, canvas.width, canvas.height);
+  
+  drawNet();
+
   player1.draw();
   player2.draw();
-  drawNet();
+  
   drawScore(175, 83, player1.score);
   drawScore(525, 83, player2.score);
-
+  
+  
   ball.draw();
   ballMovement();
+
   if (detectPlayer1Collision()) {
     ball.vx *= -1;
   }
@@ -51,7 +58,6 @@ function updateCanvas() {
     player1.score += 1;
     reset();
   }
-  
 
   if (detectPlayer2Collision()) {
     ball.vx *= -1;
@@ -61,10 +67,10 @@ function updateCanvas() {
     reset();
   }
 
-
-  requestAnimationFrame(updateCanvas);
+ requestAnimationFrame(updateCanvas);
 
 }
+
 
 function ballMovement() {
   ball.x += ball.vx;
