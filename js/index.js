@@ -5,12 +5,10 @@ let ball;
 let player1;
 let player2;
 
-
-
 function startGame() {
   ball = new Ball();
-  player1 = new Player(20, 200, "white");
-  player2 = new Player(665, 300, "white");
+  player1 = new Player(20, 150, "white");
+  player2 = new Player(670, 150, "white");
   updateCanvas();
 }
 
@@ -25,6 +23,17 @@ function drawScore(x, y, score){
   context.fillText(score, x, y);
 }
 
+
+function reset() {  
+  ball.x = 350;
+  ball.y = 250;
+  ball.speed = 7;
+
+  ball.vx = -ball.vx;
+  ball.vy = -ball.vy;
+}
+
+
 function updateCanvas() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   player1.draw();
@@ -38,17 +47,18 @@ function updateCanvas() {
   if (detectPlayer1Collision()) {
     ball.vx *= -1;
   }
-
-  if (ball.x + ball.radius >= canvas.width){
+  if (ball.x + ball.radius === canvas.width){
     player1.score += 1;
+    reset();
   }
+  
 
   if (detectPlayer2Collision()) {
     ball.vx *= -1;
   }
-
-    if (ball.x - ball.radius <= 0){
-    player2.score += 1;
+  if (ball.x - ball.radius === 0){
+    player2.score+= 1;
+    reset();
   }
 
 
@@ -59,25 +69,26 @@ function updateCanvas() {
 function ballMovement() {
   ball.x += ball.vx;
   ball.y += ball.vy;
-  if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
+  if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
     ball.vy *= -1;
   }
-  if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+  if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
     ball.vx *= -1;
   }
 
 }
 
+
 function detectPlayer1Collision() {
   return ball.y + ball.vy > player1.y && 
         ball.x + ball.vx > player1.x &&
-        ball.x + ball.vx < player1.x + player1.width &&
+        ball.x - ball.radius < player1.x + player1.width &&
         ball.y + ball.vy < player1.y + player1.height
 }
 
 function detectPlayer2Collision() {
   return ball.y + ball.vy > player2.y && 
-        ball.x + ball.vx > player2.x &&
+        ball.x + ball.radius > player2.x &&
         ball.x + ball.vx < player2.x + player2.width &&
         ball.y + ball.vy < player2.y + player2.height
 }
@@ -88,29 +99,36 @@ document.addEventListener("keydown", (keyboardEvent) => {
   switch(keyboardEvent.key) {
     case "q":
       player1.moveUp();
+      if (player1.y > 8) {
+        player1.y -= 8;
+  } 
     break;
     case "a":
       player1.moveDown();
+      if (player1.y < 290) {
+        player1.y += 8;
+  }
     break;
 
   }
 });
+
 
 document.addEventListener("keydown", (keyboardEvent) => {
   switch(keyboardEvent.key) {
     case "ArrowUp":
       player2.moveUp();
+      if (player2.y > 8) {
+        player2.y -= 8;
+  } 
     break;
     case "ArrowDown":
       player2.moveDown();
+      if (player2.y < 290) {
+        player2.y += 8;
+  }
     break;
 
   }
-});
-
-
-
-
-
-    
+});  
 
