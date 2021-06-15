@@ -5,6 +5,7 @@ class Player {
     this.width = 15;
     this.height = 120;
     this.color = color;
+    this.score = 0;
   }
 
   draw() {
