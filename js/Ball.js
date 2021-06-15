@@ -1,10 +1,10 @@
 class Ball {
   constructor() {
-    this.x = 350;
+    this.x = 400;
     this.y = 250;
-    this.vx = 2;
-    this.vy = 2;
-    this.radius = 15;
+    this.vx = 5;
+    this.vy = 5;
+    this.radius = 10;
     this.color = "white";
   }
 

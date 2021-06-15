@@ -2,8 +2,8 @@ class Player {
   constructor(x, y, color) {
     this.x = x;
     this.y = y;
-    this.width = 15;
-    this.height = 120;
+    this.width = 10;
+    this.height = 100;
     this.color = color;
     this.score = 0;
   }
@@ -22,8 +22,9 @@ class Player {
 
   moveDown() {
     context.clearRect(this.x, this.y, this.width, this.height);
-    if (this.y < 370) {
+    if (this.y + this.height < 390) {
       this.y += 10;
     }
   }
+
 }
