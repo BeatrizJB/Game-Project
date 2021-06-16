@@ -58,6 +58,7 @@ function updateCanvas() {
   player1.draw();
   player2.draw();
   
+  
   drawScore(200, 83, player1.score);
   drawScore(600, 83, player2.score);
   
@@ -89,16 +90,21 @@ function updateCanvas() {
   }
 
   if(player1.score === 6) {
+    context.clearRect (180, 50, 80, 80);
+    drawScore(200, 83, player1.score);
     gameOver = true;
   }
 
   if(player2.score === 6) {
+    context.clearRect (580, 50, 80, 80);
+    drawScore(600, 83, player2.score);
     gameOver = true;
   }
 
   if (!gameOver){
   animationId = requestAnimationFrame(updateCanvas);
   } else {
+    
     cancelAnimationFrame(animationId);
   }
 }
