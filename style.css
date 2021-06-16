@@ -1,8 +1,34 @@
+.intro {
+  font-family: "Perfect Dos";
+  text-align: center;
+  padding: 100px 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 #canvas {
-  background-image: url(./background.png);
-  border: 3px solid black;
+  border: 2px solid #dadada;
+  border-radius: 7px;
   margin-left: 350px;
   margin-top: 125px;
+}
+
+#canvas:focus {
+  outline: none;
+  border-color: #9ecaed;
+  -webkit-box-shadow: 0 0 10px #9ecaed;
+          box-shadow: 0 0 10px #9ecaed;
 }
 
 body {
