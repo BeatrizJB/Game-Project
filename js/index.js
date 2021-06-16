@@ -1,7 +1,7 @@
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 
-const hitSound = new Audio('../sounds/hitSound.wav');
+//const hitSound = new Audio('../sounds/hitSound.wav');
 
 document.querySelector(".game-board").style.display = "none";
 document.querySelector(".intro").style.display = "block";
@@ -42,14 +42,12 @@ function drawScore(x, y, score){
 }
 
 
-function reset() { 
-
-  ball.x = 350;
+function reset() {
+  ball.x = 395;
   ball.y = 250;
 
   ball.vx = -ball.vx;
-  ball.vy = -ball.vy;
-  
+  ball.vy = -ball.vy;  
 }
 
 
@@ -68,7 +66,7 @@ function updateCanvas() {
   ball.draw();
 
   setTimeout(() =>{
-        ballMovement(); //recursive function
+    ballMovement();
     }, 1000);
 
   //ballMovement();
@@ -91,6 +89,7 @@ function updateCanvas() {
 
  requestAnimationFrame(updateCanvas);
 
+
 }
 
 
@@ -103,12 +102,11 @@ function ballMovement() {
   if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
     ball.vx *= -1;
   }
-
 }
 
 
 function detectPlayer1Collision() {
-  hitSound.play();
+  //hitSound.play();
   return ball.y + ball.vy > player1.y && 
         ball.x + ball.vx > player1.x &&
         ball.x - ball.radius < player1.x + player1.width &&
@@ -116,7 +114,7 @@ function detectPlayer1Collision() {
 }
 
 function detectPlayer2Collision() {
-  hitSound.play();
+  //hitSound.play();
   return ball.y + ball.vy > player2.y && 
         ball.x + ball.radius > player2.x &&
         ball.x + ball.vx < player2.x + player2.width &&
@@ -164,12 +162,12 @@ document.addEventListener("keydown", (keyboardEvent) => {
 
 
 
-function updateTime(){
-  var today = new Date();
-  var hours24 = today.getHours();
-  var hours12;
-  var minutes = today.getMinutes();
-  var suffix = '';
+/* function updateTime(){
+  let today = new Date();
+  let hours24 = today.getHours();
+  let hours12;
+  let minutes = today.getMinutes();
+  let suffix = '';
 
   if (hours24 >= 12) {
     suffix = " PM";
@@ -185,14 +183,14 @@ function updateTime(){
     minutes = "0" + minutes;
   }
 
-  var time = hours12 + ":" + minutes + suffix;
+  let time = hours12 + ":" + minutes + suffix;
 
-  var timeBox = document.querySelector(".start__time-text");
+  let timeBox = document.querySelector(".start__time-text");
 
   timeBox.innerHTML = time;
 }
 
-setInterval(updateTime, 1000);
+setInterval(updateTime, 1000); */
 
 
 
