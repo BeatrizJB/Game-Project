@@ -44,7 +44,7 @@ function drawScore(x, y, score){
 
 
 function reset() { 
-  ball.x = 350;
+  ball.x = 395;
   ball.y = 250;
   ball.vx =- ball.vx;
   ball.vy =- ball.vy; 
@@ -64,11 +64,6 @@ function updateCanvas() {
   
   
   ball.draw();
-
- /*  setTimeout(() =>{
-        ballMovement(); //recursive function
-    }, 1000); */
-
   ballMovement();
 
   if (detectPlayer1Collision()) {
@@ -114,7 +109,6 @@ function ballMovement() {
   if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
     ball.vx *= -1;
   }
-
 }
 
 
@@ -134,20 +128,21 @@ function detectPlayer2Collision() {
          ball.y + ball.vy < player2.y + player2.height
 }
 
+
 startGame();
 
 document.addEventListener("keydown", (keyboardEvent) => {
   switch(keyboardEvent.key) {
     case "q":
       player1.moveUp();
-      if (player1.y > 8) {
-        player1.y -= 8;
+      if (player1.y > 10) {
+        player1.y -= 10;
   } 
     break;
     case "a":
       player1.moveDown();
       if (player1.y < 290) {
-        player1.y += 8;
+        player1.y += 10;
   }
     break;
 
