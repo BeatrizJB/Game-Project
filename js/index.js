@@ -1,14 +1,14 @@
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 
-//const hitSound = new Audio('../sounds/hitSound.wav');
+// const hitSound = new Audio('../sounds/hitSound.wav');
 
 document.querySelector(".game-board").style.display = "none";
 document.querySelector(".intro").style.display = "block";
 
 document.querySelector(".start__button").onclick = () => {
-  document.querySelector(".intro").style.display = "none";
-  document.querySelector(".game-board").style.display = "block";
+document.querySelector(".intro").style.display = "none";
+document.querySelector(".game-board").style.display = "block";
   startGame();
 };
 
@@ -31,7 +31,7 @@ function startGame() {
 }
 
 function drawNet(){
-  context.fillStyle = "white";
+  context.fillStyle = "white"; 
   context.fillRect(395, 0, 5, 500);
 }
 
@@ -42,12 +42,11 @@ function drawScore(x, y, score){
 }
 
 
-function reset() {
-  ball.x = 395;
+function reset() { 
+  ball.x = 350;
   ball.y = 250;
-
-  ball.vx = -ball.vx;
-  ball.vy = -ball.vy;  
+  ball.vx =- ball.vx;
+  ball.vy =- ball.vy; 
 }
 
 
@@ -65,16 +64,16 @@ function updateCanvas() {
   
   ball.draw();
 
-  setTimeout(() =>{
-    ballMovement();
-    }, 1000);
+ /*  setTimeout(() =>{
+        ballMovement(); //recursive function
+    }, 1000); */
 
-  //ballMovement();
+  ballMovement();
 
   if (detectPlayer1Collision()) {
     ball.vx *= -1;
   }
-  if (ball.x + ball.radius === canvas.width){
+  if (ball.x + ball.radius >= canvas.width){
     player1.score += 1;
     reset();
   }
@@ -82,7 +81,7 @@ function updateCanvas() {
   if (detectPlayer2Collision()) {
     ball.vx *= -1;
   }
-  if (ball.x - ball.radius === 0){
+  if (ball.x - ball.radius <= 0){ 
     player2.score+= 1;
     reset();
   }
@@ -108,17 +107,17 @@ function ballMovement() {
 function detectPlayer1Collision() {
   //hitSound.play();
   return ball.y + ball.vy > player1.y && 
-        ball.x + ball.vx > player1.x &&
-        ball.x - ball.radius < player1.x + player1.width &&
-        ball.y + ball.vy < player1.y + player1.height
+         ball.x + ball.vx > player1.x &&
+         ball.x - ball.radius < player1.x + player1.width &&
+         ball.y + ball.vy < player1.y + player1.height 
 }
 
 function detectPlayer2Collision() {
   //hitSound.play();
   return ball.y + ball.vy > player2.y && 
-        ball.x + ball.radius > player2.x &&
-        ball.x + ball.vx < player2.x + player2.width &&
-        ball.y + ball.vy < player2.y + player2.height
+         ball.x + ball.radius > player2.x &&
+         ball.x + ball.vx < player2.x + player2.width &&
+         ball.y + ball.vy < player2.y + player2.height
 }
 
 startGame();
