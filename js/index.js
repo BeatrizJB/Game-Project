@@ -19,14 +19,15 @@ document.querySelector(".game-board").style.display = "block";
 let ball;
 let player1;
 let player2;
-
-let currentGame;
-
+let gameOver = false;
+let animationId;
 
 function startGame() {
   ball = new Ball();
   player1 = new Player(20, 150, "white");
   player2 = new Player(770, 150, "white");
+  cancelAnimationFrame(animationId);
+  gameOver = false;
   updateCanvas();
 }
 
@@ -86,8 +87,21 @@ function updateCanvas() {
     reset();
   }
 
- requestAnimationFrame(updateCanvas);
+  if(player1.score === 6) {
+    gameOver = true;
+    alert("PLAYER 1 WINS!");
+  }
 
+  if(player2.score === 6) {
+    gameOver = true;
+    alert("PLAYER 2 WINS!");
+  }
+
+  if (!gameOver){
+  animationId = requestAnimationFrame(updateCanvas);
+  } else {
+    cancelAnimationFrame(animationId);
+  }
 }
 
 
@@ -162,11 +176,11 @@ document.addEventListener("keydown", (keyboardEvent) => {
 
 
 function updateTime(){
-  var today = new Date();
-  var hours24 = today.getHours();
-  var hours12;
-  var minutes = today.getMinutes();
-  var suffix = '';
+  let today = new Date();
+  let hours24 = today.getHours();
+  let hours12;
+  let minutes = today.getMinutes();
+  let suffix = '';
 
   if (hours24 >= 12) {
     suffix = " PM";
@@ -182,9 +196,9 @@ function updateTime(){
     minutes = "0" + minutes;
   }
 
-  var time = hours12 + ":" + minutes + suffix;
+  let time = hours12 + ":" + minutes + suffix;
 
-  var timeBox = document.querySelector(".start__time-text");
+  let timeBox = document.querySelector(".start__time-text");
 
   timeBox.innerHTML = time;
 }
