@@ -2,9 +2,9 @@ class Ball {
   constructor() {
     this.x = 395;
     this.y = 250;
-    this.vx = 3;
-    this.vy = 3;
-    this.radius = 10;
+    this.vx = 4;
+    this.vy = 4;
+    this.radius = 8;
     this.color = "white";
   }
 

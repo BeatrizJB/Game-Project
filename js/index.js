@@ -43,7 +43,7 @@ function drawScore(x, y, score){
 
 
 function reset() { 
-  ball.x = 350;
+  ball.x = 395;
   ball.y = 250;
   ball.vx =- ball.vx;
   ball.vy =- ball.vy; 
@@ -63,11 +63,6 @@ function updateCanvas() {
   
   
   ball.draw();
-
- /*  setTimeout(() =>{
-        ballMovement(); //recursive function
-    }, 1000); */
-
   ballMovement();
 
   if (detectPlayer1Collision()) {
@@ -120,20 +115,21 @@ function detectPlayer2Collision() {
          ball.y + ball.vy < player2.y + player2.height
 }
 
+
 startGame();
 
 document.addEventListener("keydown", (keyboardEvent) => {
   switch(keyboardEvent.key) {
     case "q":
       player1.moveUp();
-      if (player1.y > 8) {
-        player1.y -= 8;
+      if (player1.y > 10) {
+        player1.y -= 10;
   } 
     break;
     case "a":
       player1.moveDown();
       if (player1.y < 290) {
-        player1.y += 8;
+        player1.y += 10;
   }
     break;
 
@@ -158,45 +154,4 @@ document.addEventListener("keydown", (keyboardEvent) => {
 
   }
 });
-
-
-
-/* function updateTime(){
-  let today = new Date();
-  let hours24 = today.getHours();
-  let hours12;
-  let minutes = today.getMinutes();
-  let suffix = '';
-
-  if (hours24 >= 12) {
-    suffix = " PM";
-    hours12 = hours24 % 12;
-  } else {
-    suffix = " AM";
-    hours12 = hours24;
-  }
-  
-  if (minutes % 10 == 0) {
-    //minutes = minutes + "0";
-  } else if (minutes < 10) {
-    minutes = "0" + minutes;
-  }
-
-  let time = hours12 + ":" + minutes + suffix;
-
-  let timeBox = document.querySelector(".start__time-text");
-
-  timeBox.innerHTML = time;
-}
-
-setInterval(updateTime, 1000); */
-
-
-
-
-
-
-
-
-    
 
