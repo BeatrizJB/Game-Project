@@ -302,6 +302,8 @@ body {
 }
 
 .intro {
+  background: blue;
+  background-clip: content-box ;
   text-align: center;
   padding: 100px 300px;
   display: -webkit-box;

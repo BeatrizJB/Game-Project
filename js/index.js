@@ -10,17 +10,14 @@ document.querySelector(".start__button").onclick = () => {
 document.querySelector(".intro").style.display = "none";
 document.querySelector(".game-board").style.display = "block";
   startGame();
-};
-
-// querySelector (".class name that you assigned to the element" or #"id name that you assigned to the element")
-// getElementById ("id name that you assigned to the element")
-// getElementByClassName ("class name that you assigned to the element")
+}; 
 
 let ball;
 let player1;
 let player2;
 let gameOver = false;
 let animationId;
+
 
 function startGame() {
   ball = new Ball();
@@ -84,12 +81,10 @@ function updateCanvas() {
 
   if(player1.score === 6) {
     gameOver = true;
-    alert("PLAYER 1 WINS!");
   }
 
   if(player2.score === 6) {
     gameOver = true;
-    alert("PLAYER 2 WINS!");
   }
 
   if (!gameOver){
@@ -128,8 +123,6 @@ function detectPlayer2Collision() {
          ball.y + ball.vy < player2.y + player2.height
 }
 
-
-startGame();
 
 document.addEventListener("keydown", (keyboardEvent) => {
   switch(keyboardEvent.key) {
