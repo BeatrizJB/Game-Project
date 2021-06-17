@@ -2,8 +2,8 @@ class Ball {
   constructor() {
     this.x = 395;
     this.y = 250;
-    this.vx = 10;
-    this.vy = 10;
+    this.vx = 5;
+    this.vy = 5;
     this.radius = 10;
     this.color = "white";
   }
@@ -14,4 +14,10 @@ class Ball {
     context.fillStyle = this.color;
     context.fill();
   }
+
+    speed(){
+      this.vx += 0.5;
+      this.vy += 0.5;
+    }
+
 }
