@@ -16,8 +16,8 @@ class Ball {
   }
 
     speed(){
-      this.vx += 0.5;
-      this.vy += 0.5;
+      this.vx += 0.1;
+      this.vy += 0.1;
     }
 
 }

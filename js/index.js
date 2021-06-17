@@ -20,8 +20,7 @@ let scoreSound;
 let tadaSound = new sound ("./sounds/W95-Tada.mp3");
 let heightPlayer1 = 100
 let heightPlayer2 = 100
-let newSpeed
-
+let vel = 0.5
 
 function startGame() {
 
@@ -72,13 +71,26 @@ function updateCanvas() {
 
   ballMovement();
 
-  if (ball.x - ball.radius <= 0 || ball.x + ball.radius >= canvas.width){
-    ball.speed();
-  }
 
   if (detectPlayer1Collision()) {
     ball.vx *= -1;
     hitSound.play();
+  }
+
+  
+    if (ball.x - ball.radius <= 0 || ball.x + ball.radius >= canvas.width){
+      if (ball.vx < 0){
+        ball.vx -= vel
+      }
+      if (ball.vx > 0){
+        ball.vx += vel
+      }
+      if (ball.vy < 0){
+        ball.vy -= vel
+      }
+      if (ball.vy > 0){
+        ball.vy += vel
+      }
   }
 
   if (ball.x + ball.radius >= canvas.width){
@@ -140,7 +152,7 @@ function ballMovement() {
   ball.y += ball.vy;
   if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
     ball.vy *= -1;
-    //sounds hitting top and bottom
+    
   }
   if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
     ball.vx *= -1;
