@@ -18,9 +18,12 @@ let animationId;
 let hitSound;
 let scoreSound;
 let tadaSound = new sound ("./sounds/W95-Tada.mp3");
+let heightPlayer1 = 100
+let heightPlayer2 = 100
 
 
 function startGame() {
+
   ball = new Ball();
   player1 = new Player(20, 150, "white");
   player2 = new Player(770, 150, "white");
@@ -56,8 +59,8 @@ function updateCanvas() {
   
   drawNet();
 
-  player1.draw();
-  player2.draw();
+  player1.draw(heightPlayer1);
+  player2.draw(heightPlayer2);
   
   
   drawScore(200, 83, player1.score);
@@ -90,6 +93,14 @@ function updateCanvas() {
     reset();
   }
 
+  if(player1.score >= 6){
+    heightPlayer1 = 50;
+    player1.draw();
+  }
+    if(player2.score >= 6){
+    heightPlayer2 = 50;
+    player2.draw();
+  }
 
 
   if(player1.score === 12) {
@@ -130,26 +141,28 @@ function detectPlayer1Collision() {
   return ball.y + ball.vy > player1.y && 
          ball.x + ball.vx > player1.x &&
          ball.x - ball.radius < player1.x + player1.width &&
-         ball.y + ball.vy < player1.y + player1.height
+         ball.y + ball.vy < player1.y + heightPlayer1
 }
 
 function detectPlayer2Collision() {
   return ball.y + ball.vy > player2.y && 
          ball.x + ball.radius > player2.x &&
          ball.x + ball.vx < player2.x + player2.width &&
-         ball.y + ball.vy < player2.y + player2.height
+         ball.y + ball.vy < player2.y + heightPlayer2
 }
 
 
 document.addEventListener("keydown", (keyboardEvent) => {
   switch(keyboardEvent.key) {
     case "q":
+      context.clearRect(this.x, this.y, this.width, heightPlayer1);
       player1.moveUp();
       if (player1.y > 10) {
         player1.y -= 10;
   } 
     break;
     case "a":
+      context.clearRect(this.x, this.y, this.width, heightPlayer1);
       player1.moveDown();
       if (player1.y < 290) {
         player1.y += 10;
@@ -163,12 +176,15 @@ document.addEventListener("keydown", (keyboardEvent) => {
 document.addEventListener("keydown", (keyboardEvent) => {
   switch(keyboardEvent.key) {
     case "ArrowUp":
+      context.clearRect(this.x, this.y, this.width, heightPlayer2);
       player2.moveUp();
+
       if (player2.y > 8) {
         player2.y -= 8;
   } 
     break;
     case "ArrowDown":
+      context.clearRect(this.x, this.y, this.width, heightPlayer2);
       player2.moveDown();
       if (player2.y < 290) {
         player2.y += 8;
