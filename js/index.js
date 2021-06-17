@@ -17,27 +17,28 @@ let gameOver = false;
 let animationId;
 let hitSound;
 let scoreSound;
+let tadaSound = new sound ("./sounds/W95-Tada.mp3");
 
 
 function startGame() {
   ball = new Ball();
   player1 = new Player(20, 150, "white");
   player2 = new Player(770, 150, "white");
-  hitSound = new sound("hitSound.mp3");
-  scoreSound = new sound("winning-point.mp3");
+  hitSound = new sound("./sounds/hitSound.mp3");
+  scoreSound = new sound("./sounds/winning-point.mp3");
   cancelAnimationFrame(animationId);
   gameOver = false;
   updateCanvas();
 }
 
-function drawNet(){
+function drawNet(){  
   context.fillStyle = "white"; 
   context.fillRect(395, 0, 5, 500);
 }
 
 function drawScore(x, y, score){
   context.fillStyle = "white";
-  context.font = "35px sans-serif";
+  context.font = "35px Perfect Dos";
   context.fillText(score, x, y);
 }
 
@@ -68,11 +69,11 @@ function updateCanvas() {
 
   if (detectPlayer1Collision()) {
     ball.vx *= -1;
-    hitSound.play(); //sound hitting player 1
+    hitSound.play();
   }
 
   if (ball.x + ball.radius >= canvas.width){
-    scoreSound.play(); //sound scoring 
+    scoreSound.play();
     player1.score += 1;
     reset();
     
@@ -80,32 +81,35 @@ function updateCanvas() {
 
   if (detectPlayer2Collision()) {
     ball.vx *= -1;
-    hitSound.play(); //sound hitting player 2
+    hitSound.play();
   }
 
   if (ball.x - ball.radius <= 0){ 
-    scoreSound.play(); //sound scoring 
+    scoreSound.play();
     player2.score+= 1;
     reset();
   }
 
-  if(player1.score === 6) {
+
+
+  if(player1.score === 12) {
     context.clearRect (180, 50, 80, 80);
     drawScore(200, 83, player1.score);
     gameOver = true;
   }
 
-  if(player2.score === 6) {
+  if(player2.score === 12) {
     context.clearRect (580, 50, 80, 80);
     drawScore(600, 83, player2.score);
     gameOver = true;
   }
 
+
   if (!gameOver){
   animationId = requestAnimationFrame(updateCanvas);
   } else {
-    
-    cancelAnimationFrame(animationId);
+      cancelAnimationFrame(animationId);
+      tadaSound.play();
   }
 }
 

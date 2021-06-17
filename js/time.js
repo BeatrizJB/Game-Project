@@ -6,8 +6,9 @@ function updateTime(){
   let suffix = '';
 
   if (hours24 >= 12) {
-    suffix = " PM";
+    suffix = " PM"; 
     hours12 = hours24 % 12;
+    hours12 = hours12 ? hours12 : 12; 
   } else {
     suffix = " AM";
     hours12 = hours24;
@@ -26,4 +27,4 @@ function updateTime(){
   timeBox.innerHTML = time;
 }
 
-setInterval(updateTime, 1000);
+updateTime();
