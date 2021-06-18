@@ -18,8 +18,7 @@
 }
 
 #canvas {
-  background-color: black;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 7px;
   margin-left: 350px;
   margin-top: 125px;
