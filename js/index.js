@@ -112,13 +112,13 @@ function updateCanvas() {
     reset();
   }
 
-  if(player1.score === 12) {
+  if(player1.score === 11) {
     context.clearRect (180, 50, 80, 80);
     drawScore(200, 83, player1.score);
     gameOver = true;
   }
 
-  if(player2.score === 12) {
+  if(player2.score === 11) {
     context.clearRect (580, 50, 80, 80);
     drawScore(600, 83, player2.score);
     gameOver = true;
