@@ -13,16 +13,14 @@ class Player {
   }
 
   moveUp() {
-    
-    if (this.y > 15) {
-      this.y -= 15;
+     if (this.y >= 20) {
+      this.y -= 20;
     }
   }
 
   moveDown() {
-    context.clearRect(this.x, this.y, this.width, this.height);
-    if (this.y + this.height < 385) {
-      this.y += 15;
+     if (this.y + this.height <= 390) {
+      this.y += 10;
     }
   }
 

@@ -18,9 +18,9 @@ let animationId;
 let hitSound;
 let scoreSound;
 let tadaSound = new sound ("./sounds/W95-Tada.mp3");
-let heightPlayer1 = 100
-let heightPlayer2 = 100
-let vel = 0.5
+let heightPlayer1 = 100;
+let heightPlayer2 = 100;
+let vel = 0.2;
 
 function startGame() {
 
@@ -112,19 +112,6 @@ function updateCanvas() {
     reset();
   }
 
-
-  if(player1.score >= 6){
-    heightPlayer1 = 50;
-    player1.draw();
-  }
-    if(player2.score >= 6){
-    heightPlayer2 = 50;
-    player2.draw();
-  }
-
-
-
-
   if(player1.score === 12) {
     context.clearRect (180, 50, 80, 80);
     drawScore(200, 83, player1.score);
@@ -179,8 +166,8 @@ document.addEventListener("keydown", (keyboardEvent) => {
     case "q":
       context.clearRect(this.x, this.y, this.width, heightPlayer1);
       player1.moveUp();
-      if (player1.y > 10) {
-        player1.y -= 10;
+      if (player1.y > 15) {
+        player1.y -= 15;
   } 
     break;
     case "a":
@@ -201,15 +188,15 @@ document.addEventListener("keydown", (keyboardEvent) => {
       context.clearRect(this.x, this.y, this.width, heightPlayer2);
       player2.moveUp();
 
-      if (player2.y > 8) {
-        player2.y -= 8;
+      if (player2.y >= 15) {
+        player2.y -= 15;
   } 
     break;
     case "ArrowDown":
       context.clearRect(this.x, this.y, this.width, heightPlayer2);
       player2.moveDown();
       if (player2.y < 290) {
-        player2.y += 8;
+        player2.y += 10;
   }
     break;
 
