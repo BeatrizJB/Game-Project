@@ -20,7 +20,7 @@ class Player {
 
   moveDown() {
      if (this.y + this.height <= 390) {
-      this.y += 10;
+      this.y += 20;
     }
   }
 

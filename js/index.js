@@ -174,7 +174,7 @@ document.addEventListener("keydown", (keyboardEvent) => {
       context.clearRect(this.x, this.y, this.width, heightPlayer1);
       player1.moveDown();
       if (player1.y < 290) {
-        player1.y += 10;
+        player1.y += 20;
   }
     break;
 
@@ -196,7 +196,7 @@ document.addEventListener("keydown", (keyboardEvent) => {
       context.clearRect(this.x, this.y, this.width, heightPlayer2);
       player2.moveDown();
       if (player2.y < 290) {
-        player2.y += 10;
+        player2.y += 20;
   }
     break;
 
