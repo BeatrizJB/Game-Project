@@ -24,6 +24,8 @@ For the development of this project the following technologies were used
 
 If you'd like to see the project on your browser or even see the code:
 
+- on the browser https://retro-w95-pong.netlify.app/
+
 - git clone https://github.com/BeatrizJB/Game-Project in your terminal
 - cd Game-Project
 - code .
